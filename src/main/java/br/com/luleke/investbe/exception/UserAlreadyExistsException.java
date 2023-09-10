@@ -1,7 +1,6 @@
-package br.com.luleke.investbe.service.auth.rule.exception;
+package br.com.luleke.investbe.exception;
 
 import br.com.luleke.investbe.config.enums.MessagesEnum;
-import br.com.luleke.investbe.exception.LulekeInvestBeBusinessException;
 
 public class UserAlreadyExistsException extends LulekeInvestBeBusinessException{
 	

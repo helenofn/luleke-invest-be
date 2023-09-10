@@ -2,9 +2,9 @@ package br.com.luleke.investbe.service.auth.rule;
 
 import org.springframework.stereotype.Component;
 
+import br.com.luleke.investbe.exception.UserAlreadyExistsException;
 import br.com.luleke.investbe.model.User;
 import br.com.luleke.investbe.model.respository.UserRepository;
-import br.com.luleke.investbe.service.auth.rule.exception.UserAlreadyExistsException;
 import br.com.luleke.investbe.service.common.rule.AbstractRule;
 
 @Component
