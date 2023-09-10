@@ -1,0 +1,5 @@
+logging: 
+  level:    '[br.com.luleke]': debug
+
+server:  port: ${port:8081}
+
