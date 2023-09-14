@@ -9,13 +9,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.luleke.investbe.LulekeInvestBeApplicationTests;
+import br.com.luleke.investbe.AbstractLulekeInvestBeTest;
 import br.com.luleke.investbe.model.User;
 import br.com.luleke.investbe.model.respository.util.UserRepositoryTestUtil;
 import jakarta.transaction.Transactional;
 
 @Transactional
-public class UserRepositoryTest extends LulekeInvestBeApplicationTests{
+public class UserRepositoryTest extends AbstractLulekeInvestBeTest{
 
 	@Autowired
 	private UserRepository userRepository; 

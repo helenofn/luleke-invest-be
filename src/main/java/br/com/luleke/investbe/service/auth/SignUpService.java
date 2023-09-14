@@ -20,7 +20,7 @@ public class SignUpService {
 	private final SignupUserRuleGroup signupUserRuleGroup;
 	private User user;
 	
-	private void mount(String name, String email, String criptPass) {
+	private void mount(String name, String email, String pass) {
 		this.user = new User();
 		this.user.setName(name);
 		this.user.setEmail(email);
@@ -30,10 +30,10 @@ public class SignUpService {
 		signupUserRuleGroup.validateRules(this.user);
 	}
 	
-	public User execute(String name, String email, String criptPass) {
-		mount(name, email, criptPass);
+	public User execute(String name, String email, String pass) {
+		mount(name, email, pass);
 		validate();
-		this.user.setPassword(GenerateHashPasswordUtil.getHasFromPassword(criptPass));
+		this.user.setPassword(GenerateHashPasswordUtil.getHashFromPassword(pass));
 		this.user.setStatus(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel());
 		this.user.getRoles().add(UserRoleEnum.COMMON.getModel());
 		
