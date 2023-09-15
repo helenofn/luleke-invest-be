@@ -9,19 +9,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.luleke.investbe.AbstractLulekeInvestBeTest;
-import br.com.luleke.investbe.exception.UserAlreadyExistsException;
+import br.com.luleke.investbe.exception.AccountEmailAlreadyExistsException;
 import br.com.luleke.investbe.model.User;
 import br.com.luleke.investbe.model.respository.UserRepository;
 import br.com.luleke.investbe.model.respository.util.UserRepositoryTestUtil;
 import jakarta.transaction.Transactional;
 
 @Transactional
-public class UserAlreadyExistsRuleTest extends AbstractLulekeInvestBeTest{
+public class AccountEmailAlreadyExistsRuleTest extends AbstractLulekeInvestBeTest{
 
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private UserAlreadyExistsRule userAlreadyExistsRule;
+	private AccountEmailAlreadyExistsRule accountEmailAlreadyExistsRule;
 	private User user;
 	
 	@BeforeEach
@@ -32,16 +32,16 @@ public class UserAlreadyExistsRuleTest extends AbstractLulekeInvestBeTest{
 	
 	@DisplayName("Test to check if the \"user already exists\" rule when user with already exists e-mail")
 	@Test
-	void givenUserObjectWithSameEmailAnotherUser_whenSave_thenThrowUserAlreadyExistsException() {
+	void givenUserObjectWithSameEmailAnotherUser_whenSave_thenThrowAccountEmailAlreadyExistsException() {
 		User userAux = UserRepositoryTestUtil.buildUser();
-		assertThrows(UserAlreadyExistsException.class, () -> userAlreadyExistsRule.validate(userAux));
+		assertThrows(AccountEmailAlreadyExistsException.class, () -> accountEmailAlreadyExistsRule.validate(userAux));
 	}
 	
 	@DisplayName("Test to check if the \"user already exists\" rule when user with an e-mail that doesnt exist")
 	@Test
 	void givenUserObjectWithNewEmail_whenSave_thenDoesNotThrowException() {
 		User userAux = UserRepositoryTestUtil.buildUser2();
-		assertDoesNotThrow(() -> userAlreadyExistsRule.validate(userAux));
+		assertDoesNotThrow(() -> accountEmailAlreadyExistsRule.validate(userAux));
 	}
 
 }
