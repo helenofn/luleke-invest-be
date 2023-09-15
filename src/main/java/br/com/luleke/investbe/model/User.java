@@ -19,10 +19,11 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -56,6 +57,7 @@ public class User {
 	@JoinColumn(name = "cd_user_status")
 	private UserStatus status;
 	
+	@Builder.Default
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "USER_DATA_ROLE", schema = "LULEKE_INVEST", 
 				joinColumns = {@JoinColumn(name = "cseq_user")}, 
