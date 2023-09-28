@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.service.auth.rule;
+package br.com.luleke.investbe.service.rule.group;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -16,32 +16,31 @@ import br.com.luleke.investbe.model.respository.util.UserRepositoryTestUtil;
 import jakarta.transaction.Transactional;
 
 @Transactional
-public class AccountEmailAlreadyExistsRuleTest extends AbstractLulekeInvestBeTest{
+public class SignupUserRuleGroupTest extends AbstractLulekeInvestBeTest{
 
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private AccountEmailAlreadyExistsRule accountEmailAlreadyExistsRule;
-	private User user;
+	private SignupUserRuleGroup signupUserRuleGroup;
 	
 	@BeforeEach
     void setup(){
-		this.user = UserRepositoryTestUtil.buildUser();
-		userRepository.save(this.user);
+		User user = UserRepositoryTestUtil.buildUser();
+		userRepository.save(user);
     }
 	
-	@DisplayName("Test to check if the \"user already exists\" rule when user with already exists e-mail")
+	@DisplayName("Test to check if the \"user is email already exists\" rule when user with already exists e-mail")
 	@Test
 	void givenUserObjectWithSameEmailAnotherUser_whenSave_thenThrowAccountEmailAlreadyExistsException() {
 		User userAux = UserRepositoryTestUtil.buildUser();
-		assertThrows(AccountEmailAlreadyExistsException.class, () -> accountEmailAlreadyExistsRule.validate(userAux));
+		assertThrows(AccountEmailAlreadyExistsException.class, () -> this.signupUserRuleGroup.validateRules(userAux));
 	}
 	
 	@DisplayName("Test to check if the \"user already exists\" rule when user with an e-mail that doesnt exist")
 	@Test
 	void givenUserObjectWithNewEmail_whenSave_thenDoesNotThrowException() {
 		User userAux = UserRepositoryTestUtil.buildUser2();
-		assertDoesNotThrow(() -> accountEmailAlreadyExistsRule.validate(userAux));
+		assertDoesNotThrow(() -> this.signupUserRuleGroup.validateRules(userAux));
 	}
 
 }

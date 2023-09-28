@@ -3,22 +3,35 @@ package br.com.luleke.investbe.service.common.rule;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
-
+@Component
 @Getter
 @Setter
 public abstract class AbstractRuleGroup <T>{
 
-	private List<AbstractRule<T>> rules = new ArrayList<>();
+	protected T valueObject;
+	protected List<AbstractRule<?>> rules; 
 	
-	public void validateRules(T objToValidate) {
-		for (AbstractRule<T> rule : rules) {
-			rule.validate(objToValidate);
-		}
+	protected void addRule(AbstractRule<?> rule) {
+		if(null==this.rules)
+			this.rules = new ArrayList<>();
+		this.rules.add(rule);
 	}
 	
-	public void addRule(AbstractRule<T> obj) {
-		this.rules.add(obj);
+	public abstract AbstractRuleGroup<T> createRules();
+	
+	private void initialize(T value) {
+		this.valueObject = value;
+		createRules();
+	}
+	
+	public void validateRules(T value) {
+		initialize(value);
+		for (AbstractRule<?> abstractRule : rules) {
+			abstractRule.validate();
+		}
 	}
 }

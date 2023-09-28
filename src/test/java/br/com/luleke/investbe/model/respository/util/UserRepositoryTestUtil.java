@@ -18,7 +18,7 @@ public class UserRepositoryTestUtil {
 		User user = User.builder()
 				.name("Nome da pessoa")
 				.email("a@mail.com")
-				.password("sas4a5sa4s5as45asa!asa")
+				.password("H4569f!123")
 				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
 				.build();
 		user.setRoles(roles);
@@ -31,7 +31,7 @@ public class UserRepositoryTestUtil {
 		User user = User.builder()
 				.name("Nome da pessoa 2")
 				.email("a2@mail.com")
-				.password("sas4a5sa4s5as45asa!asa")
+				.password("H4569f!123")
 				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
 				.build();
 		user.setRoles(roles);

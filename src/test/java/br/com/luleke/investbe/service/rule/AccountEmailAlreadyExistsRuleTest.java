@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.service.auth.rule.group;
+package br.com.luleke.investbe.service.rule;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -16,31 +16,32 @@ import br.com.luleke.investbe.model.respository.util.UserRepositoryTestUtil;
 import jakarta.transaction.Transactional;
 
 @Transactional
-public class SignupUserRuleGroupTest extends AbstractLulekeInvestBeTest{
+public class AccountEmailAlreadyExistsRuleTest extends AbstractLulekeInvestBeTest{
 
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private SignupUserRuleGroup signupUserRuleGroup;
+	private AccountEmailAlreadyExistsRule accountEmailAlreadyExistsRule;
+	private User user;
 	
 	@BeforeEach
     void setup(){
-		User user = UserRepositoryTestUtil.buildUser();
-		userRepository.save(user);
+		this.user = UserRepositoryTestUtil.buildUser();
+		userRepository.save(this.user);
     }
 	
-	@DisplayName("Test to check if the \"user is email already exists\" rule when user with already exists e-mail")
+	@DisplayName("Test to check if the \"user already exists\" rule when user with already exists e-mail")
 	@Test
 	void givenUserObjectWithSameEmailAnotherUser_whenSave_thenThrowAccountEmailAlreadyExistsException() {
 		User userAux = UserRepositoryTestUtil.buildUser();
-		assertThrows(AccountEmailAlreadyExistsException.class, () -> signupUserRuleGroup.validateRules(userAux));
+		assertThrows(AccountEmailAlreadyExistsException.class, () -> this.accountEmailAlreadyExistsRule.initialize(userAux.getEmail()).validate());
 	}
 	
 	@DisplayName("Test to check if the \"user already exists\" rule when user with an e-mail that doesnt exist")
 	@Test
 	void givenUserObjectWithNewEmail_whenSave_thenDoesNotThrowException() {
 		User userAux = UserRepositoryTestUtil.buildUser2();
-		assertDoesNotThrow(() -> signupUserRuleGroup.validateRules(userAux));
+		assertDoesNotThrow(() -> this.accountEmailAlreadyExistsRule.initialize(userAux.getEmail()).validate());
 	}
 
 }

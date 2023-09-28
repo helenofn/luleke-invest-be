@@ -30,7 +30,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "USER_DATA", schema = "LULEKE_INVEST")
-public class User {
+public class User extends Object{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
