@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.model.respository.util;
+package br.com.luleke.investbe.test.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,7 +10,7 @@ import br.com.luleke.investbe.model.UserRole;
 import br.com.luleke.investbe.model.enums.UserRoleEnum;
 import br.com.luleke.investbe.model.enums.UserStatusEnum;
 
-public class UserRepositoryTestUtil {
+public class UserTestUtil {
 
 	public static User buildUser() {
 		List<UserRole> roles = new ArrayList<>();
@@ -29,6 +29,20 @@ public class UserRepositoryTestUtil {
 		List<UserRole> roles = new ArrayList<>();
 		roles.add(UserRoleEnum.PUBLIC.getModel());
 		User user = User.builder()
+				.name("Nome da pessoa 2")
+				.email("a2@mail.com")
+				.password("H4569f!123")
+				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
+				.build();
+		user.setRoles(roles);
+		return user;
+	}
+	
+	public static User buildUserToReturn() {
+		List<UserRole> roles = new ArrayList<>();
+		roles.add(UserRoleEnum.PUBLIC.getModel());
+		User user = User.builder()
+				.id(1L)
 				.name("Nome da pessoa 2")
 				.email("a2@mail.com")
 				.password("H4569f!123")

@@ -12,7 +12,7 @@ import br.com.luleke.investbe.exception.InvalidEmailException;
 import br.com.luleke.investbe.exception.InvalidUserNameException;
 import br.com.luleke.investbe.exception.InvalidUserPassException;
 import br.com.luleke.investbe.model.User;
-import br.com.luleke.investbe.model.respository.util.UserRepositoryTestUtil;
+import br.com.luleke.investbe.test.util.UserTestUtil;
 import jakarta.transaction.Transactional;
 
 @Transactional
@@ -29,7 +29,7 @@ public class SignUpServiceTest extends AbstractLulekeInvestBeTest{
 		String pass = "AAAbbbccc@123";
 		
 		User user = signUpService.execute(name, mail, pass);
-		UserRepositoryTestUtil.validateUserDataReturn(user);
+		UserTestUtil.validateUserDataReturn(user);
 	}
 	
 	@DisplayName("Test to save user with already used e-mail")
@@ -57,7 +57,7 @@ public class SignUpServiceTest extends AbstractLulekeInvestBeTest{
 	void givenInvalidName_whenSave_thenThrowsInvalidUserNameException() {
 		String mail = "sasa1.sasa@sas.com";
 		String name1 = "uas";
-		String name2 = "uasfdfsfsfsffdsfdsfsfsfsfsfsfsfsfsfsfsfsfsfsfsaslkoaisj ajsja jsaskasaaas";
+		String name2 = "uasfdfsfsfsffdsfdsfsfsfsfsfsfsfsfsfsfsfsfsfsfsaslkoaisj ajsja jsaskasaaasjsaskasaaasjsaskasaaasjsaskasaaasjsaskasaaasjsaskasaaasjsaskasaaasjsaskasaaas";
 		String pass = "O!17401198a";
 		assertThrows(InvalidUserNameException.class, () -> signUpService.execute(name1, mail, pass));
 		assertThrows(InvalidUserNameException.class, () -> signUpService.execute(name2, mail, pass));

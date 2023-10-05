@@ -15,7 +15,7 @@ class ValidEmailRuleTest extends AbstractLulekeInvestBeTest{
 	@Autowired
 	private ValidEmailRule validEmailRule;
 	
-	@DisplayName("Test to check if a invalid mail throws InvalidEmailException")
+	@DisplayName("Check if a invalid mail throws InvalidEmailException")
 	@Test
 	void givenInvalidMail_whenValidate_thenThrowsInvalidEmailException() {
 		String mailInv1 = "";
@@ -30,7 +30,7 @@ class ValidEmailRuleTest extends AbstractLulekeInvestBeTest{
 		assertThrows(InvalidEmailException.class, () -> this.validEmailRule.initialize(mailInv5).validate());
 	}
 	
-	@DisplayName("Test to check if a valid e-mail does not throws exception")
+	@DisplayName("Check if a valid e-mail does not throws exception")
 	@Test
 	void givenValidEmail_whenValidate_thenDoesNotThrowsException() {
 		String mailInv1 = "asasa@sasa.com.br";
@@ -41,6 +41,20 @@ class ValidEmailRuleTest extends AbstractLulekeInvestBeTest{
 		assertDoesNotThrow(() -> this.validEmailRule.initialize(mailInv2).validate());
 		assertDoesNotThrow(() -> this.validEmailRule.initialize(mailInv3).validate());
 		assertDoesNotThrow(() -> this.validEmailRule.initialize(mailInv4).validate());
+	}
+	
+	@DisplayName("Check the maximun email size")
+	@Test
+	void givenMailWithGraterThenMaximun_whenValidate_thenThrowsInvalidEmailException() {
+		String mailInv1 = "asaasasasaasaasasasaasaasasasaasaasasasaasaasasasaasaasasasasasasasasasasaasasasasasasasasasadsasasasasadfdfdsfsdfdsasasaddfdfdsfsdfdsfdsfsffs@sdaasdsdsa.com";
+		assertThrows(InvalidEmailException.class, () -> this.validEmailRule.initialize(mailInv1).validate());
+	}
+	
+	@DisplayName("Check the minimun email size")
+	@Test
+	void givenMailWithLessThenMinimun_whenValidate_thenThrowsInvalidEmailException() {
+		String mailInv1 = "a@s.com";
+		assertThrows(InvalidEmailException.class, () -> this.validEmailRule.initialize(mailInv1).validate());
 	}
 
 }

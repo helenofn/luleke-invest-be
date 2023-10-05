@@ -11,7 +11,7 @@ public class ValidUserNameRule extends AbstractRule<String>{
 
 	@Override
 	public void validate() {
-		if (StringUtils.isEmpty(this.valueObject) || this.valueObject.length() < 4 || this.valueObject.length() > 70)
+		if (StringUtils.isEmpty(this.valueObject) || this.valueObject.length() < 5 || this.valueObject.length() > 100)
 			throw new InvalidUserNameException();
 	}
 

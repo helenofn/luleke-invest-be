@@ -14,6 +14,8 @@ public class ValidEmailRule extends AbstractRule<String>{
 	public void validate() {
 		if (this.getValueObject() == null)
 			throw new InvalidEmailException();
+		if(this.getValueObject().length() < 10 || this.getValueObject().length() > 150)
+			throw new InvalidEmailException();
 		String regexPattern = "^[A-Za-z0-9+_.-]+@(.+)[A-Za-z0-9]$";
 		Pattern pattern = Pattern.compile(regexPattern);
 		boolean isValid = pattern.matcher(this.getValueObject()).matches();
