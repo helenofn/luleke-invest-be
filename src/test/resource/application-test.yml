@@ -41,3 +41,10 @@ spring:
 #            create-source: script 
 #            drop-source: script
 #            create-database-schemas: true
+
+#token
+security:
+  jwt: 
+    token:
+      secret-key: AUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfQYUS
+      expire-lenth: 3600

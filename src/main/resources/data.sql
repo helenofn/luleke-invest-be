@@ -2,11 +2,11 @@
 insert into luleke_invest.user_role (cd_role, ds_name)
 values (1, 'PUBLIC');
 insert into luleke_invest.user_role (cd_role, ds_name)
-values (2, 'USER_COMMON');
+values (2, 'COMMON');
 insert into luleke_invest.user_role (cd_role, ds_name)
-values (3, 'USER_REGISTER');
+values (3, 'REGISTER');
 insert into luleke_invest.user_role (cd_role, ds_name)
-values (4, 'USER_ANALYST');
+values (4, 'ANALYST');
 
 -- ### Features
 insert into luleke_invest.app_feature (cd_feature, ds_name)

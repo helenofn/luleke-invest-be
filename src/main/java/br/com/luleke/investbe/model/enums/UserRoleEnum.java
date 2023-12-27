@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 public enum UserRoleEnum {
 
-	PUBLIC(1, "Publico"),
-	COMMON(2, "Comum"),
-	REGISTER(3, "Cadastro"),
-	ANALYST(4, "Analista");
+	PUBLIC(1, "PUBLIC"),
+	COMMON(2, "COMMON"),
+	REGISTER(3, "REGISTER"),
+	ANALYST(4, "ANALYST");
 	
 	private Integer id;
 	private String name;
@@ -24,5 +24,14 @@ public enum UserRoleEnum {
 		role.setCode(this.id);
 		role.setName(this.name);
 		return role;
+	}
+	
+	public static UserRole getUserRoleByName(String userRoleName) {
+		for (UserRoleEnum item : UserRoleEnum.values()) {
+			if(item.getName().equalsIgnoreCase(userRoleName)) {
+				return item.getModel();
+			}
+		}
+		return null;
 	}
 }

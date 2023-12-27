@@ -12,6 +12,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -19,22 +21,35 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.luleke.investbe.config.provider.JwtTokenProvider;
+import br.com.luleke.investbe.model.respository.UserRepository;
 import br.com.luleke.investbe.request.dto.UserSignUpRequestDTO;
+import br.com.luleke.investbe.service.auth.AuthenticationService;
 import br.com.luleke.investbe.service.auth.SignUpService;
 import br.com.luleke.investbe.test.util.UserTestUtil;
 
+@ActiveProfiles(value = "test")
+@TestPropertySource(properties = {
+        "spring.jpa.hibernate.ddl-auto=validate"
+})
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = AuthController.class)
-class AuthControllerTest {
-
+class AuthControllerTest{
+	
+	@MockBean
+	private UserRepository userRepository;
+	@MockBean
+	private JwtTokenProvider jwtTokenProvider;
+	@MockBean
+	private SignUpService signUpService;
+	@MockBean
+	private AuthenticationService authenticationService;
+	@Autowired
+	private MockMvc mockMvc;
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 	@Autowired
 	private ObjectMapper objectMapper;
-	@MockBean
-	private SignUpService signUpService;
-	@Autowired
-	private MockMvc mockMvc;
 	
 	private void confSignUpService() {
 		when(signUpService.execute(anyString(), anyString(), anyString())).thenReturn(UserTestUtil.buildUserToReturn());

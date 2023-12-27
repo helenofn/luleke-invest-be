@@ -3,6 +3,7 @@ package br.com.luleke.investbe.exception.handler;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,13 +23,19 @@ import lombok.extern.slf4j.Slf4j;
 @ControllerAdvice
 public class HandlerException extends ResponseEntityExceptionHandler{
 
+	@ExceptionHandler(value = AccessDeniedException.class)
+	public ResponseEntity<Object> AccessDeniedException(HttpServletRequest req, AccessDeniedException e){
+		log.info(String.format("Ocorreu um erro, usuário não tem a role de acesso ao método: %s", e.getMessage()), e);
+		ReturnDTO err = new ReturnDTO(MessagesEnum.USER_UNAUTHORIZED);
+		return ResponseEntity.status(MessagesEnum.USER_UNAUTHORIZED.getHttpStatus()).body(err);
+	}
+	
 	@ExceptionHandler(value = LulekeInvestBeBusinessException.class)
 	public ResponseEntity<Object> lulekeInvestBeBusinessException(HttpServletRequest req, LulekeInvestBeBusinessException e){
 		log.info(String.format("Ocorreu um erro de negocio: %s", e.getMessage()), e);
 		ReturnDTO err = new ReturnDTO(e.getMessageEnum());
 		return ResponseEntity.status(e.getMessageEnum().getHttpStatus()).body(err);
 	}
-
 	
 	@ExceptionHandler(value = Exception.class)
 	public ResponseEntity<Object> hfnInvestException(HttpServletRequest req, Exception e){

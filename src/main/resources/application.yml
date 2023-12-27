@@ -2,4 +2,25 @@ logging:
   level:    '[br.com.luleke]': debug
 
 server:  port: ${port:8081}
+    
+spring: 
+  application: 
+    name: API for investment control
+    description: API for investment control
+    version: 1.0.0
+    contact: 
+      name: Heleno Freitas Neto
+      email: heleno.freitas@gmail.com
+
+#Api da aplha vantage
+api:
+  aplhavantage:
+    key: 4XNJ6Q3HSUHNQ4L7
+
+#token
+security:
+  jwt: 
+    token:
+      secret-key: AUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfAUQJAkajiaqyhaj45987ala7AuirtlPasl125AquiakjystrRfQYUS
+      expire-lenth: 3600
 

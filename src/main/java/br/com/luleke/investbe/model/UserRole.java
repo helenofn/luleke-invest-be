@@ -36,4 +36,8 @@ public class UserRole {
 				joinColumns = {@JoinColumn(name = "cd_role")}, 
 				inverseJoinColumns = {@JoinColumn(name = "cd_feature")})
 	private List<AppFeature> features = new ArrayList<>();
+	
+	public String getRoleName() {
+		return "ROLE_".concat(this.name);
+	}
 }
