@@ -1,10 +1,10 @@
-package br.com.luleke.investbe.service.rule;
+package br.com.luleke.investbe.rule;
 
 import org.springframework.stereotype.Component;
 
 import br.com.luleke.investbe.exception.AccountEmailAlreadyExistsException;
 import br.com.luleke.investbe.model.respository.UserRepository;
-import br.com.luleke.investbe.service.common.rule.AbstractRule;
+import br.com.luleke.investbe.rule.config.AbstractRule;
 import lombok.RequiredArgsConstructor;
 
 @Component

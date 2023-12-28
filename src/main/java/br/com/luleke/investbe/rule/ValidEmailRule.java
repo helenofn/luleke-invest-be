@@ -1,11 +1,11 @@
-package br.com.luleke.investbe.service.rule;
+package br.com.luleke.investbe.rule;
 
 import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
 
 import br.com.luleke.investbe.exception.InvalidEmailException;
-import br.com.luleke.investbe.service.common.rule.AbstractRule;
+import br.com.luleke.investbe.rule.config.AbstractRule;
 
 @Component
 public class ValidEmailRule extends AbstractRule<String>{

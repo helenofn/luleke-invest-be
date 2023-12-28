@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.service.rule;
+package br.com.luleke.investbe.rule;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;
 
 import br.com.luleke.investbe.exception.InvalidUserPassException;
-import br.com.luleke.investbe.service.common.rule.AbstractRule;
+import br.com.luleke.investbe.rule.config.AbstractRule;
 import br.com.luleke.investbe.util.StringUtils;
 
 @Component

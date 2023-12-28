@@ -1,13 +1,13 @@
-package br.com.luleke.investbe.service.rule.group;
+package br.com.luleke.investbe.rule.group;
 
 import org.springframework.stereotype.Component;
 
 import br.com.luleke.investbe.model.User;
-import br.com.luleke.investbe.service.common.rule.AbstractRuleGroup;
-import br.com.luleke.investbe.service.rule.AccountEmailAlreadyExistsRule;
-import br.com.luleke.investbe.service.rule.ValidEmailRule;
-import br.com.luleke.investbe.service.rule.ValidUserNameRule;
-import br.com.luleke.investbe.service.rule.ValidUserPassRule;
+import br.com.luleke.investbe.rule.AccountEmailAlreadyExistsRule;
+import br.com.luleke.investbe.rule.ValidEmailRule;
+import br.com.luleke.investbe.rule.ValidUserNameRule;
+import br.com.luleke.investbe.rule.ValidUserPassRule;
+import br.com.luleke.investbe.rule.config.AbstractRuleGroup;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

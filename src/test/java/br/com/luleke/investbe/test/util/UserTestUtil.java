@@ -38,6 +38,45 @@ public class UserTestUtil {
 		return user;
 	}
 	
+	public static User buildUserMail(String mail) {
+		List<UserRole> roles = new ArrayList<>();
+		roles.add(UserRoleEnum.PUBLIC.getModel());
+		User user = User.builder()
+				.name("Nome da pessoa")
+				.email(mail)
+				.password("H4569f!123")
+				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
+				.build();
+		user.setRoles(roles);
+		return user;
+	}
+	
+	public static User buildUserName(String name) {
+		List<UserRole> roles = new ArrayList<>();
+		roles.add(UserRoleEnum.PUBLIC.getModel());
+		User user = User.builder()
+				.name(name)
+				.email("a@mail.com")
+				.password("H4569f!123")
+				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
+				.build();
+		user.setRoles(roles);
+		return user;
+	}
+	
+	public static User buildUserPass(String pass) {
+		List<UserRole> roles = new ArrayList<>();
+		roles.add(UserRoleEnum.PUBLIC.getModel());
+		User user = User.builder()
+				.name("Nome da pessoa")
+				.email("a@mail.com")
+				.password(pass)
+				.status(UserStatusEnum.AGUARDANDO_CONFIRMACAO_EMAIL.getModel())
+				.build();
+		user.setRoles(roles);
+		return user;
+	}
+	
 	public static User buildUserToReturn() {
 		List<UserRole> roles = new ArrayList<>();
 		roles.add(UserRoleEnum.PUBLIC.getModel());

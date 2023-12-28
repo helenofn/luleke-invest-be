@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.service.rule;
+package br.com.luleke.investbe.rule;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;

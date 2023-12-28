@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.service.common.rule;
+package br.com.luleke.investbe.rule.config;
 
 import java.util.ArrayList;
 import java.util.List;

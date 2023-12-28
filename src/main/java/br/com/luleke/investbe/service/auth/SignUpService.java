@@ -6,7 +6,7 @@ import br.com.luleke.investbe.model.User;
 import br.com.luleke.investbe.model.enums.UserRoleEnum;
 import br.com.luleke.investbe.model.enums.UserStatusEnum;
 import br.com.luleke.investbe.model.respository.UserRepository;
-import br.com.luleke.investbe.service.rule.group.SignupUserRuleGroup;
+import br.com.luleke.investbe.rule.group.SignupUserRuleGroup;
 import br.com.luleke.investbe.util.GenerateHashPasswordUtil;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
