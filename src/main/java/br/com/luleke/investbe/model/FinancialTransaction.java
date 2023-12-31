@@ -1,6 +1,7 @@
 package br.com.luleke.investbe.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -53,9 +54,9 @@ public class FinancialTransaction implements Serializable{
 	private Integer qtd;
 	
 	@Column(name = "unitary_value")
-	private Double unitaryValue;
+	private BigDecimal unitaryValue;
 	
 	@Column(name = "fee_value")
-	private Double feeValue;
+	private BigDecimal feeValue;
 	
 }

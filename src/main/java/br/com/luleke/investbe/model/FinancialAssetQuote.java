@@ -1,6 +1,7 @@
 package br.com.luleke.investbe.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import br.com.luleke.investbe.model.pk.FinancialAssetQuotePK;
 import jakarta.persistence.Column;
@@ -29,13 +30,13 @@ public class FinancialAssetQuote implements Serializable{
 	private FinancialAssetQuotePK id = new FinancialAssetQuotePK();
 	
 	@Column(name = "VL_OPEN_PRICE", length = 20, precision = 2)
-	private Double openPrice;
+	private BigDecimal openPrice;
 	@Column(name = "VL_MAX_PRICE", length = 20, precision = 2)
-	private Double maxPrice;
+	private BigDecimal maxPrice;
 	@Column(name = "VL_MIN_PRICE", length = 20, precision = 2)
-	private Double minPrice;
+	private BigDecimal minPrice;
 	@Column(name = "VL_PRICE", length = 20, precision = 2)
-	private Double price;
+	private BigDecimal price;
 	@Column(name = "QT_VOLUME", length = 20)
 	private Long volume;
 }
