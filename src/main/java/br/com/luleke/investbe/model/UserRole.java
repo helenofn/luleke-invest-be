@@ -26,7 +26,7 @@ public class UserRole {
 
 	@Id
 	@Column(name="cd_role", length = 3)
-	private Integer code;
+	private Integer id;
 	
 	@Column(name="ds_name", unique=true, length = 50)
 	private String name;

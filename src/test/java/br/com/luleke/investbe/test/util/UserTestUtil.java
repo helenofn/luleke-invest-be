@@ -81,7 +81,7 @@ public class UserTestUtil {
 		List<UserRole> roles = new ArrayList<>();
 		roles.add(UserRoleEnum.PUBLIC.getModel());
 		User user = User.builder()
-				.id(1L)
+				.seqId(1L)
 				.name("Nome da pessoa 2")
 				.email("a2@mail.com")
 				.password("H4569f!123")
@@ -101,7 +101,7 @@ public class UserTestUtil {
 		assertThat(user.getStatus().getName()).isNotNull();
 		assertThat(user.getRoles()).isNotEmpty();
 		assertThat(user.getRoles().get(0)).isNotNull();
-		assertThat(user.getRoles().get(0).getCode()).isNotNull();
+		assertThat(user.getRoles().get(0).getId()).isNotNull();
 		assertThat(user.getRoles().get(0).getName()).isNotNull();
 	}
 }

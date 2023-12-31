@@ -21,7 +21,7 @@ public enum UserRoleEnum {
 	
 	public UserRole getModel() {
 		UserRole role = new UserRole();
-		role.setCode(this.id);
+		role.setId(this.id);
 		role.setName(this.name);
 		return role;
 	}

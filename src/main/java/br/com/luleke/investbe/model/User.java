@@ -35,7 +35,7 @@ public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cseq_user", length = 22)
-	private Long id;
+	private Long seqId;
 	
 	@NotEmpty(message="Preenchimento Obrigatório")
 	@Email(message="E-mail inválido")

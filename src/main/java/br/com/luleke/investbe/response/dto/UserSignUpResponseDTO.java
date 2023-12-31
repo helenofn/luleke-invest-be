@@ -17,7 +17,7 @@ public class UserSignUpResponseDTO extends ReturnDTO {
 	private String email;
 	
 	public UserSignUpResponseDTO(User user) {
-		this.id = user.getId();
+		this.id = user.getSeqId();
 		this.name = user.getName();
 		this.email = user.getEmail();
 	}

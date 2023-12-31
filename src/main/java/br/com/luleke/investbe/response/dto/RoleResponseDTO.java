@@ -16,7 +16,7 @@ public class RoleResponseDTO {
 	private String name;
 	
 	public RoleResponseDTO(UserRole model) {
-		this.code = model.getCode();
+		this.code = model.getId();
 		this.name = model.getName();
 	}
 }

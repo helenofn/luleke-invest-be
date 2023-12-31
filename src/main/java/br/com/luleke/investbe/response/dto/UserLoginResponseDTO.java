@@ -20,7 +20,7 @@ public class UserLoginResponseDTO extends ReturnDTO{
 	private List<RoleResponseDTO> roles;
 	
 	public UserLoginResponseDTO(User model) {
-		this.id = model.getId();
+		this.id = model.getSeqId();
 		this.email = model.getEmail();
 		this.name = model.getName();
 		this.roles = model.getRoles().stream().map(item -> new RoleResponseDTO(item)).toList();

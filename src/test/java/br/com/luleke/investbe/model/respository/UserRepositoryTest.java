@@ -31,7 +31,7 @@ public class UserRepositoryTest extends AbstractLulekeInvestBeTest{
 	void givenUserObject_whenSave_thenReturnSavedUser() {
 		User userAux = this.userRepository.save(this.user);
 		UserTestUtil.validateUserDataReturn(userAux);
-        assertThat(userAux.getId()).isGreaterThan(0);
+        assertThat(userAux.getSeqId()).isGreaterThan(0);
 	}
 	
 	@DisplayName("Test to update user")
@@ -41,7 +41,7 @@ public class UserRepositoryTest extends AbstractLulekeInvestBeTest{
 		userAux.setName("Outro Nome");
 		userAux = this.userRepository.save(userAux);
 		        
-        User userAux2 = this.userRepository.findById(userAux.getId()).orElse(null);
+        User userAux2 = this.userRepository.findById(userAux.getSeqId()).orElse(null);
         
         UserTestUtil.validateUserDataReturn(userAux2);
         assertThat(userAux2.getName()).isEqualTo("Outro Nome");
@@ -51,7 +51,7 @@ public class UserRepositoryTest extends AbstractLulekeInvestBeTest{
 	@Test
 	void givenIdFromUserSaved_whenQueyById_thenReturnUser() {
 		User userAux = this.userRepository.save(this.user);
-		User user = this.userRepository.findById(userAux.getId()).orElse(null);
+		User user = this.userRepository.findById(userAux.getSeqId()).orElse(null);
 		UserTestUtil.validateUserDataReturn(user);
 	}
 	
@@ -68,7 +68,7 @@ public class UserRepositoryTest extends AbstractLulekeInvestBeTest{
 	@Test
 	void givenUserObject_whenDelete_thenDoesNotTrowException() {
 		this.user = this.userRepository.save(this.user);
-		User user = this.userRepository.findById(this.user.getId()).orElse(null);
+		User user = this.userRepository.findById(this.user.getSeqId()).orElse(null);
 		assertThat(user).isNotNull();
 		assertDoesNotThrow(() -> this.userRepository.delete(user));
 	}

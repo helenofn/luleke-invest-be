@@ -37,7 +37,7 @@ public class AuthController {
 	@PostMapping(path = "/signUp")
 	public ResponseEntity<UserSignUpResponseDTO> signUp(@Valid @RequestBody UserSignUpRequestDTO userDto){
 		User user = signUpService.execute(userDto.getName(), userDto.getEmail(), userDto.getPassword());
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getSeqId()).toUri();
 		return ResponseEntity.created(uri).body(new UserSignUpResponseDTO(user));
 	}
 	
