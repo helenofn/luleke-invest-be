@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.luleke.investbe.model.enums.BrokerStatusEnum;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -45,7 +44,7 @@ public class Broker implements Serializable{
 	private Integer seqId;
 	
 	@Column(name = "cd_status", length = 1)
-	private BrokerStatusEnum status;
+	private Integer status;
 	
 	@NotEmpty(message="O campo nome tem preenchimento Obrigatório")
 	@Length(min=5, max=150, message="O tamanho do nome deve ser entre 5 e 150 caracteres")

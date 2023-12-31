@@ -1,5 +1,7 @@
 package br.com.luleke.investbe.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -19,7 +21,7 @@ import lombok.Setter;
 public class FinancialAssetEventBonusShare extends FinancialAssetEvent {
 	
 	@Column(name = "VL_UNIT_COST", length = 20, precision = 2)
-	private Double vlUnitCost;
+	private BigDecimal vlUnitCost;
 	
 	@Column(name = "QTD_ASSET_BONUS", length = 4)
 	private Integer qtdStockBonus;
