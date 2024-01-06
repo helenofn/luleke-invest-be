@@ -43,7 +43,7 @@ public class WebSecurityConfig {
 		        			antMatcher("/v3/api-docs"),
 		        			antMatcher("/v3/api-docs/swagger-config"),
 		        			antMatcher("/h2-console/**"),
-		        			antMatcher("/auth/**"),
+		        			antMatcher("/v1/auth/**"),
 		        			toH2Console()
 		        		)
 		        		.permitAll()

@@ -31,12 +31,15 @@ public class Wallet implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cseq_wallet", length = 9)
-	private Integer seqId;
+	@Column(name = "cseq_wallet", length = 22)
+	private Long seqId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cseq_user")
 	private User user;
+	
+	@Column(name = "ds_name", length = 50)
+	private String name;
 
 	@Column(name = "dh_created")
 	private LocalDateTime dhCreated;

@@ -41,11 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 			        	String roles = user.getRoles().stream().map(UserRole::getRoleName).collect(Collectors.joining(","));
 			        	List<GrantedAuthority> roleUser = AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
 			        	UserAuthDTO auth = new UserAuthDTO(user, null, roleUser);
-			        	
-			        	//TODO passar a pegar as roles do banco e não do token
-			        	//TODO colocar qual role é permitida nos endpoints
-			        	//TODO excpetion para quando o usuário não autorizado (token valido sem a devida role)
-			        	//TODO exception para quando o usuário não está autenticado (token invalido)
+
 						if (auth != null) {
 							SecurityContextHolder.getContext().setAuthentication(auth);
 						}

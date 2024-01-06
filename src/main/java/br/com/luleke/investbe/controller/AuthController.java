@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -51,7 +51,6 @@ public class AuthController {
 		
 		Map<Object, Object> model = new HashMap<>();
 		model.put("user", new UserLoginResponseDTO(user));
-		model.put("roles", auth.getAuthorities());
 		model.put("token", token);
 		return ResponseEntity.ok(model);
 	}

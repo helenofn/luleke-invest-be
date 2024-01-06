@@ -16,6 +16,7 @@ public enum MessagesEnum {
 	INVALID_MAIL(HttpStatus.CONFLICT, "ERROR.INVALID.MAIL", "E-mail inválido."),
 	INVALID_USER_NAME(HttpStatus.CONFLICT, "ERROR.INVALID.USER_NAME", "Nome de usuário inválido."),
 	INVALID_USER_PASS(HttpStatus.CONFLICT, "ERROR.INVALID.USER_PASS", "Senha de usuário inválida."),
+	INVALID_WALLET_NAME(HttpStatus.CONFLICT, "ERROR.INVALID.WALLET_NAME", "Nome da carteira inválido."),
 	USER_AND_PASS_NOT_MATCH(HttpStatus.CONFLICT, "ERROR.USER_AND_PASS_NOT_MATCH", "Usuário e senha não conferem."),
 	USER_OR_PASS_NOT_PROVIDED(HttpStatus.CONFLICT, "ERROR.USER_OR_PASS_NOT_PROVIDED", "Usuário ou senha não fornecidos."),
 	USER_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "ERROR.USER.UNAUTHORIZED", "Usuário não autorizado.");

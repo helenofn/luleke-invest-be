@@ -40,7 +40,7 @@ public class FinancialAsset implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cseq_stock_exchange")
-	private StockExchange stockExchange;
+	private Company stockExchange;
 	
 	@Column(name = "ds_ticker", length = 50)
 	private String ticker;
@@ -48,6 +48,10 @@ public class FinancialAsset implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cseq_company")
 	private Company company;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cseq_bookkeeper")
+	private Company bookkeeper;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cseq_financial_asset_category")

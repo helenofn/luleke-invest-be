@@ -4,7 +4,7 @@ spring:
     init:
       mode: always
       schema-locations: classpath:schema/schema.sql
-      data-locations: classpath:data/data1_dominios.sql, classpath:data/data2_estados.sql, classpath:data/data3_municipios.sql, classpath:data/data4_broker.sql, classpath:data/data5_company.sql, classpath:data/data6_stock_exchange.sql, classpath:data/data7_financial_asset.sql
+      data-locations: classpath:data/data1_dominios.sql, classpath:data/data2_estados.sql, classpath:data/data3_municipios.sql, classpath:data/data4_users.sql, classpath:data/data5_broker.sql, classpath:data/data6_company.sql, classpath:data/data7_financial_asset.sql
 
   datasource:
     driver-class-name: org.h2.Driver
