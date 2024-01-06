@@ -1,4 +1,4 @@
-package br.com.luleke.investbe.response.dto;
+package br.com.luleke.investbe.dto;
 
 import java.time.LocalDateTime;
 
@@ -14,8 +14,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class WalletListItemResponseDTO {
-	
+public class WalletDTO {
+
 	private Long seqId;
 	private String name;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
@@ -23,10 +23,12 @@ public class WalletListItemResponseDTO {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dhLastCalculation;
 	
-	public WalletListItemResponseDTO(Wallet model) {
-		this.seqId = model.getSeqId();
-		this.name = model.getName();
-		this.dhCreated = model.getDhCreated();
-		this.dhLastCalculation = model.getDhLastCalculation();
+	public WalletDTO(Wallet model) {
+		if (null != model) {
+			this.seqId = model.getSeqId();
+			this.name = model.getName();
+			this.dhCreated = model.getDhCreated();
+			this.dhLastCalculation = model.getDhLastCalculation();
+		}
 	}
 }

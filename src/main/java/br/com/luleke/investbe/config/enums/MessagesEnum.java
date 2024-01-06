@@ -19,7 +19,8 @@ public enum MessagesEnum {
 	INVALID_WALLET_NAME(HttpStatus.CONFLICT, "ERROR.INVALID.WALLET_NAME", "Nome da carteira inválido."),
 	USER_AND_PASS_NOT_MATCH(HttpStatus.CONFLICT, "ERROR.USER_AND_PASS_NOT_MATCH", "Usuário e senha não conferem."),
 	USER_OR_PASS_NOT_PROVIDED(HttpStatus.CONFLICT, "ERROR.USER_OR_PASS_NOT_PROVIDED", "Usuário ou senha não fornecidos."),
-	USER_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "ERROR.USER.UNAUTHORIZED", "Usuário não autorizado.");
+	USER_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "ERROR.USER.UNAUTHORIZED", "Usuário não autorizado."),
+	WALLET_NOT_FOUND(HttpStatus.NOT_FOUND, "ERROR.WALLET.NOT_FOUND", "Carteira não encontrada.");
 	
 	private HttpStatus httpStatus;
 	private String codeMessage;

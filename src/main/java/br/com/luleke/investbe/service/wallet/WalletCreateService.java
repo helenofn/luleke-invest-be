@@ -20,10 +20,12 @@ public class WalletCreateService {
 	private final WalletCreateRuleGroup walletCreateRuleGroup;
 		
 	private void mount(User user, String name) {
+		final LocalDateTime now = LocalDateTime.now();
 		this.wallet = new Wallet();
 		this.wallet.setName(name);
 		this.wallet.setUser(user);
-		this.wallet.setDhCreated(LocalDateTime.now());
+		this.wallet.setDhCreated(now);
+		this.wallet.setDhLastUpdate(now);
 		this.wallet.setDhLastCalculation(null);
 	}
 	
@@ -32,7 +34,7 @@ public class WalletCreateService {
 	}
 	
 	@Transactional
-	public Wallet execute(User user, String name) {
+	public Wallet create(User user, String name) {
 		mount(user, name);
 		validate();
 				

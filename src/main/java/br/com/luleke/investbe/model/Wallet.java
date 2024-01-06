@@ -44,6 +44,9 @@ public class Wallet implements Serializable{
 	@Column(name = "dh_created")
 	private LocalDateTime dhCreated;
 	
+	@Column(name = "dh_last_update")
+	private LocalDateTime dhLastUpdate;
+	
 	@Column(name = "dh_last_calculation")
 	private LocalDateTime dhLastCalculation;
 }

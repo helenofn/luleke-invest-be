@@ -32,6 +32,7 @@ public class ReturnDTO {
 		this.timeStamp = System.currentTimeMillis();
 	}
 	
+	
 	public void addError(String fieldName, String msgErro) {
 		if(this.errors == null) {
 			this.errors = new ArrayList<>();

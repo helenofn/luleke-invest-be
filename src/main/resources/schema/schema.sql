@@ -256,6 +256,7 @@ create table IF NOT EXISTS luleke_invest.wallet (
  ds_name varchar(50) not null,
  dh_created timestamp not null,
  dh_last_calculation timestamp,
+ dh_last_update timestamp not null,
  primary key (cseq_wallet)
 );
 alter table if exists luleke_invest.wallet 
